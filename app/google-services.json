@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "875448844728",
+    "project_id": "nexus-c64ac",
+    "storage_bucket": "nexus-c64ac.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:875448844728:android:31e7ff334dd689ff344f4d",
+        "android_client_info": {
+          "package_name": "com.nexus.mobilestore"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOXuVl166Iphbw22MTeCUR6q1zGhn6c0A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
