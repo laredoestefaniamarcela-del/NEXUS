@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import com.google.firebase.auth.FirebaseAuth
 
 @Composable
 fun LoginScreen(
@@ -21,6 +22,9 @@ fun LoginScreen(
     var password by remember { mutableStateOf("") }
     var errorMessage by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
+    var isLoading by remember { mutableStateOf(false) }
+
+    val auth = FirebaseAuth.getInstance()
 
     Column(
         modifier = Modifier
@@ -37,7 +41,8 @@ fun LoginScreen(
             value = email,
             onValueChange = { email = it },
             label = { Text("Correo electrónico") },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -64,7 +69,8 @@ fun LoginScreen(
                     )
                 }
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true
         )
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -82,12 +88,30 @@ fun LoginScreen(
                 } else if (password.length < 6) {
                     errorMessage = "La contraseña debe tener al menos 6 caracteres"
                 } else {
-                    onLoginSuccess()
+                    isLoading = true
+                    errorMessage = ""
+                    auth.signInWithEmailAndPassword(email, password)
+                        .addOnSuccessListener {
+                            isLoading = false
+                            onLoginSuccess()
+                        }
+                        .addOnFailureListener {
+                            isLoading = false
+                            errorMessage = "Correo o contraseña incorrectos"
+                        }
                 }
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            enabled = !isLoading
         ) {
-            Text("Ingresar  ヽ(￣▽￣)ノ")
+            if (isLoading) {
+                CircularProgressIndicator(
+                    modifier = Modifier.size(20.dp),
+                    color = MaterialTheme.colorScheme.onPrimary
+                )
+            } else {
+                Text("Ingresar ヽ(￣▽￣)ノ")
+            }
         }
 
         Spacer(modifier = Modifier.height(8.dp))

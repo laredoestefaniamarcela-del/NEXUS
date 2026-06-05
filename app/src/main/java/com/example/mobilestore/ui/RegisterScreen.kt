@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
+import com.google.firebase.auth.FirebaseAuth
 
 @Composable
 fun RegisterScreen(
@@ -22,6 +23,9 @@ fun RegisterScreen(
     var password by remember { mutableStateOf("") }
     var errorMessage by remember { mutableStateOf("") }
     var passwordVisible by remember { mutableStateOf(false) }
+    var isLoading by remember { mutableStateOf(false) }
+
+    val auth = FirebaseAuth.getInstance()
 
     Column(
         modifier = Modifier
@@ -38,7 +42,8 @@ fun RegisterScreen(
             value = name,
             onValueChange = { name = it },
             label = { Text("Nombre") },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -47,7 +52,8 @@ fun RegisterScreen(
             value = email,
             onValueChange = { email = it },
             label = { Text("Correo electrónico") },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true
         )
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -74,7 +80,8 @@ fun RegisterScreen(
                     )
                 }
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            singleLine = true
         )
 
         Spacer(modifier = Modifier.height(8.dp))
@@ -94,12 +101,34 @@ fun RegisterScreen(
                 } else if (password.length < 6) {
                     errorMessage = "La contraseña debe tener al menos 6 caracteres"
                 } else {
-                    onRegisterSuccess()
+                    isLoading = true
+                    errorMessage = ""
+                    auth.createUserWithEmailAndPassword(email, password)
+                        .addOnSuccessListener {
+                            isLoading = false
+                            onRegisterSuccess()
+                        }
+                        .addOnFailureListener { e ->
+                            isLoading = false
+                            errorMessage = when {
+                                e.message?.contains("email") == true -> "El correo ya está registrado"
+                                e.message?.contains("password") == true -> "La contraseña es muy débil"
+                                else -> "Error al registrarse, intenta de nuevo"
+                            }
+                        }
                 }
             },
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            enabled = !isLoading
         ) {
-            Text("Registrarse")
+            if (isLoading) {
+                CircularProgressIndicator(
+                    modifier = Modifier.size(20.dp),
+                    color = MaterialTheme.colorScheme.onPrimary
+                )
+            } else {
+                Text("Registrarse")
+            }
         }
 
         Spacer(modifier = Modifier.height(8.dp))
