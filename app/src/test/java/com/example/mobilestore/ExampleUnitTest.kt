@@ -1,4 +1,4 @@
-package com.example.mobilestore
+package com.nexus.mobilestore
 
 import org.junit.Test
 
