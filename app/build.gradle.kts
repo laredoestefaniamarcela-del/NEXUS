@@ -7,8 +7,7 @@ plugins {
 
 android {
     namespace = "com.nexus.mobilestore"
-
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.nexus.mobilestore"

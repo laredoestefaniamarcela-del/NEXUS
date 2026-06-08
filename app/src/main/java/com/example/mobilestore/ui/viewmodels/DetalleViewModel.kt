@@ -1,9 +1,9 @@
-package com.example.mobilestore.ui.viewmodels
+package com.nexus.mobilestore.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.mobilestore.data.ProductoRepository
-import com.example.mobilestore.data.models.Producto
+import com.nexus.mobilestore.data.ProductoRepository
+import com.nexus.mobilestore.data.models.Producto
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

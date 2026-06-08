@@ -1,6 +1,6 @@
-package com.example.mobilestore.data
+package com.nexus.mobilestore.data
 
-import com.example.mobilestore.data.models.Producto
+import com.nexus.mobilestore.data.models.Producto
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow

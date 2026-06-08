@@ -1,4 +1,4 @@
-package com.example.mobilestore.ui.components
+package com.nexus.mobilestore.ui.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
@@ -12,7 +12,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.example.mobilestore.data.models.Producto
+import com.nexus.mobilestore.data.models.Producto
 
 @Composable
 fun ProductCard(

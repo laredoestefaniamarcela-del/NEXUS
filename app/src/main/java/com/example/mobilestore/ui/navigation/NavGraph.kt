@@ -1,4 +1,4 @@
-package com.example.mobilestore.ui.navigation
+package com.nexus.mobilestore.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavType
@@ -6,10 +6,10 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.mobilestore.ui.screens.CatalogoScreen
-import com.example.mobilestore.ui.screens.DetalleProductoScreen
-import com.example.mobilestore.ui.screens.LoginScreen
-import com.example.mobilestore.ui.screens.SplashScreen
+import com.nexus.mobilestore.ui.screens.CatalogoScreen
+import com.nexus.mobilestore.ui.screens.DetalleProductoScreen
+import com.nexus.mobilestore.ui.screens.LoginScreen
+import com.nexus.mobilestore.ui.screens.SplashScreen
 
 sealed class Screen(val route: String) {
     object Splash : Screen("splash")
