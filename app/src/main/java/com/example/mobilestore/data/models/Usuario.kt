@@ -1,4 +1,4 @@
-package com.example.mobilestore.data.models
+package com.nexus.mobilestore.data.models
 
 import com.google.firebase.Timestamp
 
