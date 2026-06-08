@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.mobilestore"
+    namespace = "com.nexus.mobilestore"
     compileSdk = 35
 
     defaultConfig {

@@ -1,4 +1,4 @@
-package com.example.mobilestore.ui.screens
+package com.nexus.mobilestore.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
@@ -17,8 +17,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import coil.compose.AsyncImage
-import com.example.mobilestore.ui.viewmodels.DetalleUiState
-import com.example.mobilestore.ui.viewmodels.DetalleViewModel
+import com.nexus.mobilestore.ui.viewmodels.DetalleUiState
+import com.nexus.mobilestore.ui.viewmodels.DetalleViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

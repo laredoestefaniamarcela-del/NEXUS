@@ -1,4 +1,4 @@
-package com.example.mobilestore.data
+package com.nexus.mobilestore.data
 
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase

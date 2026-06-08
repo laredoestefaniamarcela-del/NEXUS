@@ -1,4 +1,4 @@
-package com.example.mobilestore.ui.screens
+package com.nexus.mobilestore.ui.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -12,9 +12,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.mobilestore.ui.components.ProductCard
-import com.example.mobilestore.ui.viewmodels.CatalogoUiState
-import com.example.mobilestore.ui.viewmodels.CatalogoViewModel
+import com.nexus.mobilestore.ui.components.ProductCard
+import com.nexus.mobilestore.ui.viewmodels.CatalogoUiState
+import com.nexus.mobilestore.ui.viewmodels.CatalogoViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
